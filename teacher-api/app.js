@@ -9,7 +9,7 @@ var http = require('http');
 
 
 var index = require('./routes/index');
-var student = require('./routes/student');
+var teacher = require('./routes/teacher');
 
 var app = express();
 
@@ -35,7 +35,7 @@ app.use(function(req, res, next){
 	connection.connect();
 	next();
 });
-app.use('/', student);
+app.use('/', teacher);
 //app.use('/users', users);
 
 // catch 404 and forward to error handler
@@ -62,8 +62,8 @@ module.exports = app;
 
 const port = 4002;
 
-require('../eureka-helper/eureka-helper').registerWithEureka('student-service', port);
-console.log(`Student service listening on port ${port}`);
+require('../eureka-helper/eureka-helper').registerWithEureka('teacher-service', port);
+console.log(`Teacher service listening on port ${port}`);
 app.listen(port);
 
 //var server = http.createServer(app);
